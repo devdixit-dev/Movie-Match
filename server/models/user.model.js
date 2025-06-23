@@ -20,10 +20,10 @@ const userSchema = new mongoose.Schema({
     type: Boolean,
     default: false
   },
-  activeServices: {
+  activeServices: [{
     type: mongoose.Schema.Types.ObjectId,
     ref: "Service"
-  }
+  }]
 }, {timestamps: true});
 
 const User = mongoose.model('User', userSchema);

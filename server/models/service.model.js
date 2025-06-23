@@ -46,10 +46,10 @@ const serviceSchema = new mongoose.Schema({
     type: Date,
     default: null
   },
-  serviceAddedBy: {
+  serviceAddedBy: [{
     type: mongoose.Schema.Types.ObjectId,
     ref: 'User'
-  }
+  }]
 }, { timestamps: true });
 
 const Service = mongoose.model('Service', serviceSchema);
