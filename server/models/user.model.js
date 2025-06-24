@@ -16,6 +16,10 @@ const userSchema = new mongoose.Schema({
     required: [true, 'Password is required!'],
     minLength: 8
   },
+  verificationOtp: {
+    type: String,
+    default: null
+  },
   isVerified: {
     type: Boolean,
     default: false
