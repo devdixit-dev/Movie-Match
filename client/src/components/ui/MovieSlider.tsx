@@ -35,7 +35,7 @@ const Slider = () => {
       {/* Left Arrow */}
       <button
         onClick={() => scroll("left")}
-        className="absolute left-12 top-1/2 -translate-y-1/2 z-10 bg-white/80 hover:bg-white shadow-md p-3 rounded-full cursor-pointer"
+        className="absolute left-12 top-1/2 -translate-y-1/2 z-10 bg-white/60 hover:bg-white shadow-md p-3 rounded-full cursor-pointer"
       >
         <ArrowLeft size={20} />
       </button>
@@ -53,7 +53,7 @@ const Slider = () => {
             <img
               src={img}
               alt={`Image ${idx + 1}`}
-              className="w-full h-full object-cover rounded-lg transform hover:scale-105 transition duration-300 ease-in-out shadow-md"
+              className="w-full h-full cursor-pointer object-cover rounded-lg transform hover:scale-105 transition duration-300 ease-in-out shadow-md"
             />
           </div>
         ))}
@@ -63,7 +63,7 @@ const Slider = () => {
       {/* Right Arrow */}
       <button
         onClick={() => scroll("right")}
-        className="absolute right-12 top-1/2 -translate-y-1/2 z-10 bg-white/80 hover:bg-white shadow-md p-3 rounded-full cursor-pointer"
+        className="absolute right-12 top-1/2 -translate-y-1/2 z-10 bg-white/60 hover:bg-white shadow-md p-3 rounded-full cursor-pointer"
       >
         <ArrowRight size={20} />
       </button>
