@@ -1,17 +1,17 @@
-/* hide scrollbar but allow scroll */
-.hide-scrollbar::-webkit-scrollbar {
+/* styles.css or global styles */
+.scrollbar-hide::-webkit-scrollbar {
   display: none;
 }
-
-.hide-scrollbar {
-  -ms-overflow-style: none; /* IE and Edge */
-  scrollbar-width: none;    /* Firefox */
+.scrollbar-hide {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
 }
+
+
+@import "tailwindcss";
 
 :root {
   font-family: 'Inter', system-ui, Avenir, Helvetica, Arial, sans-serif;
   color: gray;
   background-color: white;
 }
-
-@import "tailwindcss";

@@ -1,9 +1,10 @@
 // tailwind.config.js
-module.exports = {
+import tailwindScrollbarHide from "tailwind-scrollbar-hide";
+
+export default {
   content: ["./src/**/*.{js,jsx,ts,tsx}"],
   theme: {
     extend: {},
   },
-  // eslint-disable-next-line @typescript-eslint/no-require-imports
-  plugins: [require("tailwind-scrollbar-hide")],
+  plugins: [tailwindScrollbarHide],
 };

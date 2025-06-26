@@ -1,64 +1,74 @@
-import { useState } from "react";
-import { ChevronLeft, ChevronRight } from "lucide-react";
-import blade_runner from '../../assets/slider_images/blade_runner.jpg'
+import { useRef } from "react";
+import { ArrowLeft, ArrowRight } from "lucide-react";
 
-const posters = [
-  `${blade_runner}`,
-  "/images/inception.jpg",
-  "/images/interstellar.jpg",
-  "/images/dune.jpg",
-  "/images/avatar.jpg",
-  "/images/matrix.jpg",
-  "/images/tenet.jpg",
-  "/images/john_wick.jpg",
-  "/images/mad_max.jpg",
-  "/images/the_dark_knight.jpg",
-];
+import img1 from "../../assets/slider_images/avatar.jpg";
+import img2 from "../../assets/slider_images/avg_endgame.jpg";
+import img3 from "../../assets/slider_images/titanic.jpg";
+import img4 from "../../assets/slider_images/inception.jpg";
+import img5 from "../../assets/slider_images/lion_king.jpg";
+import img6 from "../../assets/slider_images/star_wars.jpg";
+import img7 from "../../assets/slider_images/fight_club.jpg";
+import img8 from "../../assets/slider_images/avg_endgame.jpg";
+import img9 from "../../assets/slider_images/dark_knight.jpg";
+import img10 from "../../assets/slider_images/shawshank_red.jpg";
 
-const MovieSlider = () => {
-  const [index, setIndex] = useState(0);
+// ...up to img10
 
-  const prev = () => {
-    if (index > 0) setIndex(index - 1);
-  };
+const images = [img1, img2, img3, img4, img5, img6, img7, img8, img9, img10];
 
-  const next = () => {
-    if (index < posters.length - 1) setIndex(index + 1);
+
+const Slider = () => {
+  const sliderRef = useRef<HTMLDivElement>(null);
+
+  const scroll = (direction: string) => {
+    if (sliderRef.current) {
+      const scrollAmount = 220;
+      sliderRef.current.scrollBy({
+        left: direction === "left" ? -scrollAmount : scrollAmount,
+        behavior: "smooth",
+      });
+    }
   };
 
   return (
-    <div className="flex items-center justify-center overflow-y-hidden">
+    <div className="relative w-full mx-auto">
+      {/* Left Arrow */}
       <button
-        onClick={prev}
-        className="bg-white p-2 rounded-full shadow mx-2 hover:bg-gray-200"
+        onClick={() => scroll("left")}
+        className="absolute left-0 top-1/2 -translate-y-1/2 z-10 bg-white/80 hover:bg-white shadow-md p-2 rounded-full cursor-pointer"
       >
-        <ChevronLeft size={32} />
+        <ArrowLeft size={20} />
       </button>
 
-      <div className="w-[250px] h-[370px] overflow-hidden relative">
-        <div
-          className="flex transition-transform duration-500 ease-in-out"
-          style={{ transform: `translateX(-${index * 100}%)` }}
-        >
-          {posters.map((src, i) => (
+      {/* Scrollable Container */}
+      <div
+        ref={sliderRef}
+        className="flex overflow-x-scroll scrollbar-hide space-x-4 px-10 py-4"
+      >
+        {images.map((img, idx) => (
+          <div
+            key={idx}
+            className="min-w-[200px] h-[300px] shadow-lg rounded-lg overflow-hidden flex-shrink-0"
+          >
             <img
-              key={i}
-              src={src}
-              alt={`poster-${i}`}
-              className="min-w-full h-full object-cover"
+              src={img}
+              alt={`Image ${idx + 1}`}
+              className="w-full h-full object-cover rounded-lg transform hover:scale-105 transition duration-300 ease-in-out shadow-md"
             />
-          ))}
-        </div>
+          </div>
+        ))}
+
       </div>
 
+      {/* Right Arrow */}
       <button
-        onClick={next}
-        className="bg-white p-2 rounded-full shadow mx-2 hover:bg-gray-200"
+        onClick={() => scroll("right")}
+        className="absolute right-4 top-1/2 -translate-y-1/2 z-10 bg-white/80 hover:bg-white shadow-md p-2 rounded-full cursor-pointer"
       >
-        <ChevronRight size={32} />
+        <ArrowRight size={20} />
       </button>
     </div>
   );
 };
 
-export default MovieSlider;
+export default Slider;
