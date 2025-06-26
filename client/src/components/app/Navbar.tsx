@@ -7,7 +7,7 @@ const Navbar = () => {
   const navigate = useNavigate();
 
   return (
-    <div className="w-full flex justify-between items-center m-auto border-b-1 border-gray-300">
+    <div className="flex justify-between items-center m-auto">
       <div>
         <Logo />
       </div>

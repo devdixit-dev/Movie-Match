@@ -10,6 +10,10 @@ const Hero = () => {
       <div className="mt-10">
         <h3 className="flex px-10 text-xl font-medium">Top 10 All Time Favourite Movies</h3>
         <MovieSlider />
+        <div className="font-medium">
+          <p>These aren't just movies - they're milestones. Don't miss out.</p>
+          <p>Admin</p>
+        </div>
       </div>
     </div>
   )

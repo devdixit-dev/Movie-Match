@@ -35,7 +35,7 @@ const Slider = () => {
       {/* Left Arrow */}
       <button
         onClick={() => scroll("left")}
-        className="absolute left-0 top-1/2 -translate-y-1/2 z-10 bg-white/80 hover:bg-white shadow-md p-2 rounded-full cursor-pointer"
+        className="absolute left-12 top-1/2 -translate-y-1/2 z-10 bg-white/80 hover:bg-white shadow-md p-3 rounded-full cursor-pointer"
       >
         <ArrowLeft size={20} />
       </button>
@@ -63,7 +63,7 @@ const Slider = () => {
       {/* Right Arrow */}
       <button
         onClick={() => scroll("right")}
-        className="absolute right-4 top-1/2 -translate-y-1/2 z-10 bg-white/80 hover:bg-white shadow-md p-2 rounded-full cursor-pointer"
+        className="absolute right-12 top-1/2 -translate-y-1/2 z-10 bg-white/80 hover:bg-white shadow-md p-3 rounded-full cursor-pointer"
       >
         <ArrowRight size={20} />
       </button>
