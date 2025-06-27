@@ -24,7 +24,7 @@ const Slider = () => {
   };
 
   return (
-    <div className="w-full mx-auto">
+    <div className="w-full">
       <div
         ref={sliderRef}
         onWheel={handleWheel}
@@ -33,7 +33,7 @@ const Slider = () => {
         {images.map((img, idx) => (
           <div
             key={idx}
-            className="min-w-[200px] h-[300px] shadow-lg rounded-lg overflow-hidden flex-shrink-0"
+            className="min-w-[150px] h-[250px] shadow-lg rounded-lg overflow-hidden flex-shrink-0"
           >
             <img
               src={img}
