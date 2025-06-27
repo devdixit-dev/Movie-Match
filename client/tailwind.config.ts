@@ -1,10 +1,10 @@
-// tailwind.config.js
-import tailwindScrollbarHide from "tailwind-scrollbar-hide";
+/* tailwind.config.js (add this if not already) */
+import scrollbarHide from "tailwind-scrollbar-hide";
 
-export default {
-  content: ["./src/**/*.{js,jsx,ts,tsx}"],
-  theme: {
-    extend: {},
-  },
-  plugins: [tailwindScrollbarHide],
+const config = {
+  content: ["./src/**/*.{js,ts,jsx,tsx}"],
+  theme: { extend: {} },
+  plugins: [scrollbarHide],
 };
+
+export default config;
