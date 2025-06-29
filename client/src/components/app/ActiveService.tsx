@@ -1,4 +1,4 @@
-import { Mail, Calendar } from "lucide-react";
+import { Calendar } from "lucide-react";
 import { Input } from "../../components/ui/input";
 import { Button } from "../../components/ui/button";
 import { Label } from "../../components/ui/label";
@@ -8,10 +8,10 @@ const ActiveServicePage = () => {
   const today = new Date().toISOString().split("T")[0];
 
   return (
-    <div className="min-h-screen flex flex-col md:flex-row bg-gradient-to-br from-zinc-100 to-white p-6">
+    <div className=" flex flex-col md:flex-row p-6 mt-4">
       {/* LEFT SIDE */}
-      <div className="md:w-1/2 flex flex-col justify-center p-6 text-center md:text-left">
-        <h1 className="text-4xl md:text-5xl font-bold mb-4 text-gray-900">
+      <div className="md:w-full flex flex-col justify-center p-6 text-center md:text-left">
+        <h1 className="text-4xl md:text-5xl font-medium mb-4 text-gray-900">
           There's even more to watch.
         </h1>
         <h2 className="text-2xl font-semibold text-blue-600 mb-6">
@@ -23,7 +23,7 @@ const ActiveServicePage = () => {
       </div>
 
       {/* RIGHT SIDE - FORM */}
-      <div className="md:w-1/2 bg-white shadow-lg rounded-2xl p-8 mt-10 md:mt-0">
+      <div className="md:w-full bg-white rounded-2xl p-8 mt-10 md:mt-0">
         <form className="space-y-6">
           <div>
             <Label htmlFor="title" className="text-base font-medium">Title</Label>
@@ -33,7 +33,6 @@ const ActiveServicePage = () => {
           <div>
             <Label htmlFor="email" className="text-base font-medium">Email</Label>
             <div className="flex items-center gap-2">
-              <Mail className="h-5 w-5 text-gray-400" />
               <Input id="email" type="email" placeholder="you@example.com" />
             </div>
           </div>
@@ -45,18 +44,18 @@ const ActiveServicePage = () => {
                 <SelectTrigger className="w-full">
                   <SelectValue placeholder="Select genre" />
                 </SelectTrigger>
-                <SelectContent>
-                  <SelectItem value="action">Action</SelectItem>
-                  <SelectItem value="comedy">Comedy</SelectItem>
-                  <SelectItem value="drama">Drama</SelectItem>
-                  <SelectItem value="sci-fi">Sci-Fi</SelectItem>
-                  <SelectItem value="anime">Anime</SelectItem>
+                <SelectContent className="bg-gray-600 text-white">
+                  <SelectItem className="hover:cursor-pointer" value="action">Action</SelectItem>
+                  <SelectItem className="hover:cursor-pointer" value="comedy">Comedy</SelectItem>
+                  <SelectItem className="hover:cursor-pointer" value="drama">Drama</SelectItem>
+                  <SelectItem className="hover:cursor-pointer" value="sci-fi">Sci-Fi</SelectItem>
+                  <SelectItem className="hover:cursor-pointer" value="anime">Anime</SelectItem>
                 </SelectContent>
               </Select>
             </div>
 
             <div>
-              <Label htmlFor="count" className="text-base font-medium">Count (max 10)</Label>
+              <Label htmlFor="count" className="text-base font-medium">Count</Label>
               <Input id="count" type="number" min={1} max={10} defaultValue={5} />
             </div>
 
@@ -66,9 +65,9 @@ const ActiveServicePage = () => {
                 <SelectTrigger className="w-full">
                   <SelectValue placeholder="Select day" />
                 </SelectTrigger>
-                <SelectContent>
+                <SelectContent className="bg-gray-600 text-white">
                   {["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"].map((day) => (
-                    <SelectItem key={day} value={day.toLowerCase()}>{day}</SelectItem>
+                    <SelectItem className="hover:cursor-pointer" key={day} value={day.toLowerCase()}>{day}</SelectItem>
                   ))}
                 </SelectContent>
               </Select>
@@ -83,7 +82,7 @@ const ActiveServicePage = () => {
             </div>
           </div>
 
-          <Button type="submit" className="w-full mt-4">
+          <Button type="submit" className="w-full mt-4 bg-gray-600 text-white cursor-pointer hover:opacity-90">
             Activate Service
           </Button>
         </form>
