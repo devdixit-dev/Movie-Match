@@ -1,7 +1,7 @@
+import ActiveServicePage from "../components/app/ActiveService";
 import Header from "../components/app/Header";
 import Hero from "../components/app/Hero";
 import Navbar from "../components/app/Navbar";
-import SubscriptionPage from "../components/app/SubscriptionPage";
 
 const Home = () => {
   return (
@@ -9,7 +9,7 @@ const Home = () => {
         <Navbar />
         <Header />
         <Hero />
-        <SubscriptionPage />
+        <ActiveServicePage />
     </div>
   );
 };
