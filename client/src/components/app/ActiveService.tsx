@@ -83,7 +83,7 @@ const ActiveServicePage = () => {
           </div>
 
           <Button type="submit" className="w-full mt-4 bg-gray-600 text-white cursor-pointer hover:opacity-90">
-            Activate Service
+            Activate email recommendation
           </Button>
         </form>
       </div>

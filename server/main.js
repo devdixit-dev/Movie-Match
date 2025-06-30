@@ -3,6 +3,7 @@ import 'dotenv/config';
 import helmet from 'helmet';
 import cors from 'cors';
 import rateLimiter from 'express-rate-limit';
+import cookieParser from 'cookie-parser';
 
 import { Log } from './middlewares/log.js';
 import Database from './config/database.js';
@@ -16,6 +17,7 @@ Database();
 
 app.use(Log);
 app.use(errorHandler);
+app.use(cookieParser());
 app.use(express.json());
 app.use(helmet());
 app.use(cors());
