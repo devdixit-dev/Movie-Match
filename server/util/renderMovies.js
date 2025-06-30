@@ -1,7 +1,26 @@
+import axios from "axios";
+
 const KEY = "e2f9ec00b3e2ab1eaed8bb8a0bc2e7b5"
 // https://api.themoviedb.org/3/movie/popular?api_key=e2f9ec00b3e2ab1eaed8bb8a0bc2e7b5
 
 const URL = `https://api.themoviedb.org/3/genre/movie/list?api_key=${KEY}`
+
+
+const tmdb = axios.create({
+  baseURL: 'https://api.themoviedb.org/3',
+  params: {
+    api_key: KEY
+  }
+})
+
+const getTopRated = async () => {
+  const res = await tmdb.get('/movie/top_rated');
+  console.log(res.data);
+};
+
+getTopRated();
+
+
 
 const SearchWithGenreName = async() => {
   const response = await fetch(URL);
@@ -17,7 +36,7 @@ const SearchWithGenreName = async() => {
   })
 }
 
-SearchWithGenreName();
+// SearchWithGenreName();
 
 // `https://api.themoviedb.org/3/discover/movie?api_key=${KEY}&with_genres=${genre.id}`
 
