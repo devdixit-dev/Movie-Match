@@ -2,9 +2,7 @@ import axios from "axios";
 
 const KEY = "e2f9ec00b3e2ab1eaed8bb8a0bc2e7b5"
 // https://api.themoviedb.org/3/movie/popular?api_key=e2f9ec00b3e2ab1eaed8bb8a0bc2e7b5
-
 const URL = `https://api.themoviedb.org/3/genre/movie/list?api_key=${KEY}`
-
 
 const tmdb = axios.create({
   baseURL: 'https://api.themoviedb.org/3',
@@ -15,14 +13,19 @@ const tmdb = axios.create({
 
 const getTopRated = async () => {
   const res = await tmdb.get('/movie/top_rated');
-  console.log(res.data);
+  const movies = res.data;
+  movies.results.map((movie) => {
+    console.log({
+      image_path: movie.backdrop_path
+    })
+  })
 };
 
 getTopRated();
 
 
 
-const SearchWithGenreName = async() => {
+const SearchWithGenreName = async () => {
   const response = await fetch(URL);
   const data = await response.json();
   data.genres.map(async (genre) => {
