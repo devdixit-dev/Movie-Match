@@ -1,3 +1,4 @@
+import { Twitter } from "lucide-react"
 
 const Footer = () => {
   return (
@@ -8,6 +9,9 @@ const Footer = () => {
           <a href="https://github.com/devdixit-dev/Movie-Match" className="hover:text-blue-500">Github</a>
           <a href="/" className="hover:text-blue-500">Buy me a coffee</a>
         </div>
+      </div>
+      <div className="text-sm">
+        <a href="https://x.com/dev16_developer" target="_blank" className="flex gap-2 text-center"><Twitter width={20} />dev16_developer</a>
       </div>
       <div>
         <p className="flex text-sm">Made by Dev Dixit</p>
