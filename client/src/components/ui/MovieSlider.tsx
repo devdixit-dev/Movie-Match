@@ -1,19 +1,10 @@
-import { useRef } from "react";
-
-import img1 from "../../assets/slider_images/avatar.jpg";
-import img2 from "../../assets/slider_images/avg_endgame.jpg";
-import img3 from "../../assets/slider_images/titanic.jpg";
-import img4 from "../../assets/slider_images/inception.jpg";
-import img5 from "../../assets/slider_images/lion_king.jpg";
-import img6 from "../../assets/slider_images/star_wars.jpg";
-import img7 from "../../assets/slider_images/fight_club.jpg";
-import img8 from "../../assets/slider_images/blade_runner.jpg";
-import img9 from "../../assets/slider_images/dark_knight.jpg";
-import img10 from "../../assets/slider_images/shawshank_red.jpg";
-
-const images = [img1, img2, img3, img4, img5, img6, img7, img8, img9, img10];
+import { useEffect, useRef, useState } from "react";
+import axios from 'axios';
 
 const Slider = () => {
+
+  const [images, setImages] = useState<string[]>([]);
+
   const sliderRef = useRef<HTMLDivElement>(null);
 
   const handleWheel = (e: React.WheelEvent) => {
@@ -22,6 +13,33 @@ const Slider = () => {
       sliderRef.current.scrollLeft += e.deltaY;
     }
   };
+
+  const tmdb = axios.create({
+    baseURL: 'https://api.themoviedb.org/3',
+    params: {
+      api_key: import.meta.env.VITE_KEY
+    }
+  })
+
+  const renderMovies = async () => {
+    const response = await tmdb.get('/trending/movie/day');
+    const movies = response.data.results
+
+    const urls = []
+
+    for (let i = 0; i <= 10; i++) {
+      const poster_path = movies[i].poster_path
+      const imageUrl = `https://image.tmdb.org/t/p/w500/${poster_path}`
+      urls.push(imageUrl);
+
+      setImages(urls);
+    }
+  }
+
+  useEffect(() => {
+    renderMovies();
+  // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [])
 
   return (
     <div className="w-full">
