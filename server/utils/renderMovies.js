@@ -2,7 +2,6 @@ import axios from "axios";
 
 const KEY = "e2f9ec00b3e2ab1eaed8bb8a0bc2e7b5"
 // https://api.themoviedb.org/3/movie/popular?api_key=e2f9ec00b3e2ab1eaed8bb8a0bc2e7b5
-const URL = `https://api.themoviedb.org/3/genre/movie/list?api_key=${KEY}`
 
 const tmdb = axios.create({
   baseURL: 'https://api.themoviedb.org/3',
@@ -13,33 +12,21 @@ const tmdb = axios.create({
 
 const getTopRated = async () => {
   const res = await tmdb.get('/movie/top_rated');
-  const movies = res.data;
-  movies.results.map((movie) => {
-    console.log({
-      image_path: movie.backdrop_path
-    })
-  })
+  const movies = res.data.results;
+
+  const urls = []
+
+  for(let i = 0; i <= 10; i++) {
+    const poster_path = movies[i].poster_path
+    const imageUrl = `https://image.tmdb.org/t/p/w500/${poster_path}`
+    urls.push(imageUrl);
+  }
+
+  console.log(urls)
+  
 };
 
 getTopRated();
-
-
-
-const SearchWithGenreName = async () => {
-  const response = await fetch(URL);
-  const data = await response.json();
-  data.genres.map(async (genre) => {
-    const response = await fetch(`https://api.themoviedb.org/3/discover/movie?api_key=${KEY}&with_genres=${genre.id}`);
-    const data = await response.json();
-    console.log(`${genre.name}`);
-    data.results.map(async (movie) => {
-      const genreName = movie.original_title
-      console.log(genreName);
-    })
-  })
-}
-
-// SearchWithGenreName();
 
 // `https://api.themoviedb.org/3/discover/movie?api_key=${KEY}&with_genres=${genre.id}`
 

@@ -1,9 +1,9 @@
 import bcrypt from 'bcryptjs';
-import jwt, { decode } from 'jsonwebtoken';
+import jwt from 'jsonwebtoken';
 
 import User from '../models/user.model.js';
 import transporter from '../config/nodemailer.js';
-import { DecodeJWT } from '../util/decodeJwt.js';
+import { DecodeJWT } from '../utils/decodeJwt.js';
 
 export const getRoute = async(req, res) => {
   res.send('Auth - GET Route')
