@@ -7,7 +7,7 @@ const ActiveServicePage = () => {
   const today = new Date().toISOString().split("T")[0];
 
   return (
-    <div className=" flex flex-col md:flex-row p-6 mt-4">
+    <div className="flex flex-col mt-16 md:flex-row p-6">
       {/* LEFT SIDE */}
       <div className="md:w-full flex flex-col justify-center items-center p-2 text-center md:text-left">
         <h1 className="text-4xl md:text-5xl font-medium text-gray-900 mb-2">
