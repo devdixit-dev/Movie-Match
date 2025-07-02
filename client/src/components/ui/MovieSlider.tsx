@@ -27,11 +27,10 @@ const Slider = () => {
 
     const urls = []
 
-    for (let i = 0; i <= 10; i++) {
+    for (let i = 0; i <= movies.length; i++) {
       const poster_path = movies[i].poster_path
       const imageUrl = `https://image.tmdb.org/t/p/w500/${poster_path}`
       urls.push(imageUrl);
-
       setImages(urls);
     }
   }
@@ -42,7 +41,7 @@ const Slider = () => {
   }, [])
 
   return (
-    <div className="w-full">
+    <div className="w-full mb-1">
       <div
         ref={sliderRef}
         onWheel={handleWheel}
