@@ -1,7 +1,11 @@
 import { useEffect, useRef, useState } from "react";
 import axios from 'axios';
 
-const Slider = () => {
+interface SliderProps {
+  route: string;
+}
+
+const Slider = ({ route }: SliderProps) => {
 
   const [images, setImages] = useState<string[]>([]);
 
@@ -22,7 +26,7 @@ const Slider = () => {
   })
 
   const renderMovies = async () => {
-    const response = await tmdb.get('/trending/movie/day');
+    const response = await tmdb.get(`${route}`);
     const movies = response.data.results
 
     const urls = []
